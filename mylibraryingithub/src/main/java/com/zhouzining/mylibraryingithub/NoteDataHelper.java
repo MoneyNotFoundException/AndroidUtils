@@ -22,7 +22,6 @@ public class NoteDataHelper extends SQLiteOpenHelper {
     //类没有实例化,是不能用作父类构造器的参数,必须声明为静态
 
     private static String name = "default"; //数据库名称
-
     private static int version = 1; //数据库版本
     private String dbName;
     private String dbKey;
@@ -64,11 +63,6 @@ public class NoteDataHelper extends SQLiteOpenHelper {
                     dbString.append("varchar(100)");
                 } else {
                     String value = (String) dbMap.get(key);
-//                    try {
-//                        value = URLEncoder.encode(value, "UTF-8");
-//                    } catch (UnsupportedEncodingException e) {
-//                        e.printStackTrace();
-//                    }
                     dbString.append(typeToDbType(value) + ", ");
                 }
             }
@@ -86,11 +80,6 @@ public class NoteDataHelper extends SQLiteOpenHelper {
             for (String key : dbMap.keySet()) {
                 dbKey.append(key + ",");
                 String value = dbMap.get(key);
-//                try {
-//                    value = URLEncoder.encode(value, "UTF-8");
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
                 dbValue.append(value + "','");
             }
             dbKey.deleteCharAt(dbKey.length() - 1);
@@ -113,11 +102,6 @@ public class NoteDataHelper extends SQLiteOpenHelper {
             for (String key : dbMap.keySet()) {
                 dbString.append(" " + key + " = ");
                 String value = dbMap.get(key);
-//                try {
-//                    value = URLEncoder.encode(value, "UTF-8");
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
                 dbString.append("'" + value + "' " + connector);
             }
             for (int i = 0; i < connector.toCharArray().length + 1; i++) {
@@ -135,11 +119,6 @@ public class NoteDataHelper extends SQLiteOpenHelper {
             for (String key : dbMap.keySet()) {
                 dbString.append(" " + key + " like ");
                 String value = dbMap.get(key);
-//                try {
-//                    value = URLEncoder.encode(value, "UTF-8");
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
                 dbString.append("'%" + value + "%' " + connector);
             }
             for (int i = 0; i < connector.toCharArray().length + 1; i++) {

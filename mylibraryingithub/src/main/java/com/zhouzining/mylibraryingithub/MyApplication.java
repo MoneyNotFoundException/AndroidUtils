@@ -32,4 +32,11 @@ public abstract class MyApplication extends Application {
     public abstract void initData();
 
     public abstract void initConfig();
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        ZNUtils utils = ZNUtils.getInstance(MyApplication.this);
+        utils.setBoolean("isFirstIn", false );
+    }
 }
