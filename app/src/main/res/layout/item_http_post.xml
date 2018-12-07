@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y88"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y88"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/x24"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:text="post请求参数"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/http_choose_name_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/x102"
+            android:background="#ffffff"
+            android:hint="Name"
+            android:textColor="@color/red" />
+
+        <EditText
+            android:id="@+id/http_choose_type_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/x12"
+            android:background="#ffffff"
+            android:hint="String"
+            android:textColor="@color/red" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/http_post"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_marginLeft="@dimen/x24"
+        android:gravity="left|center_vertical"
+        android:hint="" />
+</LinearLayout>

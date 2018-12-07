@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/http_scroll"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:text="网络请求测试（http://a.com?a=a&amp;b=b）"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/complete_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:hint="完整链接" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:text="请求头部(http://a.com)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/http_head"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:hint="" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:text="请求头部分隔符(？)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/http_cut1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:hint="" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:text="请求体分隔符(&amp;)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/http_cut2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:hint="" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:text="请求参数，用“，”分开"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/http_askbody"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginLeft="@dimen/x24"
+                android:gravity="left|center_vertical"
+                android:hint="" />
+
+            <LinearLayout
+                android:id="@+id/post_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="@dimen/y88"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginLeft="@dimen/x24"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="post请求参数，用“，”分开"-->
+                <!--android:textColor="#000000" />-->
+
+                <!--<Button-->
+                <!--android:id="@+id/http_choose_btn1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="@dimen/x12"-->
+                <!--android:background="#ffffff"-->
+                <!--android:text="选择类型，默认String"-->
+                <!--android:textColor="@color/red" />-->
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/http_addpost_btn"
+            android:layout_width="@dimen/x224"
+            android:layout_height="@dimen/y88"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="添加post请求参数" />
+
+        <Button
+            android:id="@+id/http_start"
+            android:layout_width="@dimen/x224"
+            android:layout_height="@dimen/y88"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="开始请求" />
+    </LinearLayout>
+
+</LinearLayout>
