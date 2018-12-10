@@ -5,4 +5,4 @@
 相关的api说明文档在这里：
 https://www.showdoc.cc/223251556133387
  
-https://github.com/MoneyNotFoundException/AndroidUtils/blob/master/doclink.png
+AndroidUtils/doclink.png
