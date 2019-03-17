@@ -28,4 +28,15 @@ public class Application extends MyApplication {
 //        initVideo();
     }
 
+    @Override
+    public void initData() {
+        int a = 0;
+        double b = 2d;
+    }
+
+    @Override
+    public void initConfig() {
+
+    }
+
 }

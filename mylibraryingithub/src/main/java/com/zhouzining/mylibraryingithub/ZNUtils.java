@@ -67,13 +67,13 @@ public class ZNUtils<T> {
     public static final int LOG_LEVEL_ERROR = 4;    //错误 红色
     public static final int LOG_LEVEL_ALL = 5;      //输出所有等级
     private static int mLogLevel = LOG_LEVEL_ALL;
-    private static Context context;
+    private static Context mContext;
     private SQLiteDatabase db;
     private NoteDataHelper helper;
 
 
     protected ZNUtils(Context context) {
-        this.context = context;
+        this.mContext = context;
         if (getBoolean("isFirstIn", true))
             setBoolean("isFirstIn", true);
         sp = context.getSharedPreferences("ZNUtils", Context.MODE_PRIVATE);
@@ -157,7 +157,7 @@ public class ZNUtils<T> {
             return;
         }
         intent.setData(uri);
-        context.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
     public static String downloadFile(String url, String folderPath, String fileName) {
@@ -405,7 +405,7 @@ public class ZNUtils<T> {
 //            }
             return false;
         } else {
-            helper = new NoteDataHelper(context, dbName, 1, dbMap);
+            helper = new NoteDataHelper(mContext, dbName, 1, dbMap);
             db = helper.getDb(helper);
             return true;
         }
@@ -552,7 +552,7 @@ public class ZNUtils<T> {
     }
 
     public static void openAppOrMarket(String targetPkg) {
-        final PackageManager packageManager = context.getPackageManager();
+        final PackageManager packageManager = mContext.getPackageManager();
         List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
         List<String> packageNames = new ArrayList<String>();
 
@@ -563,15 +563,15 @@ public class ZNUtils<T> {
             }
         }
         if (packageNames.contains(targetPkg)) {
-            Intent LaunchIntent = context.getPackageManager()
+            Intent LaunchIntent = mContext.getPackageManager()
                     .getLaunchIntentForPackage(targetPkg);
-            context.startActivity(LaunchIntent);
+            mContext.startActivity(LaunchIntent);
         } else {
             try {
                 Uri uri = Uri.parse("market://details?id=" + targetPkg);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                mContext.startActivity(intent);
             } catch (Exception e) {
                 toastS("您的手机没有安装Android应用市场");
                 e.printStackTrace();
@@ -640,17 +640,17 @@ public class ZNUtils<T> {
     }
 
     public static String getCatchSize() {
-        long cacheSize = getFolderSize(context.getCacheDir().getPath());
+        long cacheSize = getFolderSize(mContext.getCacheDir().getPath());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            cacheSize += getFolderSize(context.getExternalCacheDir().getPath());
+            cacheSize += getFolderSize(mContext.getExternalCacheDir().getPath());
         }
         return getSizeStrByDouble(cacheSize);
     }
 
     public static void cleanCatch() {
-        deleteFolder(context.getCacheDir().getPath());
+        deleteFolder(mContext.getCacheDir().getPath());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            deleteFolder(context.getExternalCacheDir().getPath());
+            deleteFolder(mContext.getExternalCacheDir().getPath());
         }
     }
 
@@ -761,7 +761,7 @@ public class ZNUtils<T> {
     public static int dpToPx(String dpStr) {
         int dp = Integer.parseInt(dpStr);
         dp = dp / 2;
-        final float scale = context.getResources().getDisplayMetrics().density;
+        final float scale = mContext.getResources().getDisplayMetrics().density;
         int px = (int) (dp * scale + 0.5f);
         return px;
     }
