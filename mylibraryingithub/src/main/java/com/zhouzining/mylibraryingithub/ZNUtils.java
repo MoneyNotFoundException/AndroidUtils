@@ -74,9 +74,9 @@ public class ZNUtils<T> {
 
     protected ZNUtils(Context context) {
         this.mContext = context;
+        sp = context.getSharedPreferences("ZNUtils", Context.MODE_PRIVATE);
         if (getBoolean("isFirstIn", true))
             setBoolean("isFirstIn", true);
-        sp = context.getSharedPreferences("ZNUtils", Context.MODE_PRIVATE);
     }
 
     public static ZNUtils getInstance(Context context) {
